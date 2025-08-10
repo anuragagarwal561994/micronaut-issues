@@ -9,7 +9,15 @@
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>issue-11983</artifactId>
+    <packaging>native-image</packaging>
+
+    <artifactId>issue-11978</artifactId>
+
+    <properties>
+        <micronaut.test.resources.version>2.9.0</micronaut.test.resources.version>
+        <micronaut.testresources.version>2.9.0</micronaut.testresources.version>
+        <micronaut.aot.version>2.9.0</micronaut.aot.version>
+    </properties>
 
     <build>
         <plugins>
@@ -28,14 +36,40 @@
                             <artifactId>micronaut-inject-java</artifactId>
                             <version>4.9.9</version>
                         </path>
+                        <path>
+                            <groupId>io.micronaut</groupId>
+                            <artifactId>micronaut-graal</artifactId>
+                            <version>4.9.8</version>
+                        </path>
                     </annotationProcessorPaths>
                     <parameters>true</parameters>
                     <annotationProcessorPathsUseDepMgmt>true</annotationProcessorPathsUseDepMgmt>
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
+                <groupId>io.micronaut.maven</groupId>
+                <artifactId>micronaut-maven-plugin</artifactId>
+                <version>4.10.1</version>
+                <extensions>true</extensions>
+            </plugin>
+            <plugin>
+                <groupId>org.graalvm.buildtools</groupId>
+                <artifactId>native-maven-plugin</artifactId>
+                <version>0.11.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <imageName>${project.artifactId}</imageName>
+                    <mainClass>org.example.Main</mainClass>
+                    <buildArgs combine.children="append">
+                        <buildArg>--no-fallback</buildArg>
+                    </buildArgs>
+                    <quickBuild>true</quickBuild>
+                    <metadataRepository>
+                        <enabled>true</enabled>
+                    </metadataRepository>
+                    <isDetectionEnabled>true</isDetectionEnabled>
+                    <ignoreExistingResourcesConfig>true</ignoreExistingResourcesConfig>
+                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -67,13 +101,21 @@
             <artifactId>jackson-databind</artifactId>
         </dependency>
         <dependency>
+            <groupId>io.micronaut</groupId>
+            <artifactId>micronaut-jackson-databind</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.inject</groupId>
+            <artifactId>jakarta.inject-api</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+        <dependency>
             <groupId>io.micronaut.serde</groupId>
             <artifactId>micronaut-serde-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <scope>test</scope>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
