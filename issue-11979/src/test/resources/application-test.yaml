@@ -1,0 +1,14 @@
+fooBar:
+  abk:
+    expectedSize: 3_000_000
+    fpp: 1e-6
+  divid:
+    expectedSize: 2_000_000
+    fpp: 1e-5
+barFoo:
+  abk:
+    expectedSize: 1_000_000
+    fpp: 1e-3
+  divid:
+    expectedSize: 8_000_000
+    fpp: 1e-9

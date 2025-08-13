@@ -12,6 +12,7 @@
     <modules>
         <module>issue-11983</module>
         <module>issue-11978</module>
+        <module>issue-11979</module>
     </modules>
 
     <properties>
