@@ -12,3 +12,6 @@ barFoo:
   divid:
     expectedSize: 8_000_000
     fpp: 1e-9
+bazFooBar:
+  expectedSize: 7_000_000
+  fpp: 1e-7
