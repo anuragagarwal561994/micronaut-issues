@@ -1,15 +1,15 @@
 fooBar:
-  abk:
+  a:
     expectedSize: 3_000_000
     fpp: 1e-6
-  divid:
+  b:
     expectedSize: 2_000_000
     fpp: 1e-5
 barFoo:
-  abk:
+  c:
     expectedSize: 1_000_000
     fpp: 1e-3
-  divid:
+  d:
     expectedSize: 8_000_000
     fpp: 1e-9
 bazFooBar:

@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @EachProperty("bar-foo")
-public class WorkingConfiguration {
+class WorkingConfiguration {
     private int expectedSize;
     private double fpp;
 

@@ -1,0 +1,22 @@
+foo:
+  a:
+    bloomFilter:
+      expectedSize: 3_000_000
+      fpp: 1e-6
+  b:
+    bloomFilter:
+      expectedSize: 2_000_000
+      fpp: 1e-5
+bar:
+  c:
+    bloomFilter:
+      expectedSize: 1_000_000
+      fpp: 1e-3
+  d:
+    bloomFilter:
+      expectedSize: 8_000_000
+      fpp: 1e-9
+baz:
+  bloomFilter:
+    expectedSize: 7_000_000
+    fpp: 1e-7
